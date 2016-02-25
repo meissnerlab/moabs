@@ -1,21 +1,19 @@
 CC=	g++
 
 ifndef SAMTOOLS
-	SAMTOOLS=$(MOABS_ROOT)/src/bsmap/samtools
+	SAMTOOLS=/n/meissnerfs1/sw/samtools
 endif
 
 ifndef HTSLIB
-	HTSLIB=$(MOABS_ROOT)/src/bsmap/htslib
+	HTSLIB=/n/meissnerfs1/sw/htslib
 endif
 
-##The corresponding files are $(MOABS_ROOT)/src/bsmap/boost/boost/*hpp
 ifndef BOOSTINC
-	BOOSTINC=$(MOABS_ROOT)/src/bsmap/boost
+	BOOSTINC=/n/meissnerfs1/sw/boost/include
 endif
 
-##The corresponding files are $(MOABS_ROOT)/src/bsmap/boost/lib/libboost*
 ifndef BOOSTLIB
-	BOOSTLIB=$(MOABS_ROOT)/src/bsmap/boost/lib
+	BOOSTLIB=/n/meissnerfs1/sw/boost/lib
 endif
 
 
