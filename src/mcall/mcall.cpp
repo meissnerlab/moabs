@@ -583,8 +583,7 @@ char rctable(char m)//reverse complimentary of bases
 	case 'N':
 		return 'M';
 	default:
-		cerr << "unexpected sequence " << m <<endl;
-		exit(1);
+		return 'M';
 	}
 };
 
@@ -1293,6 +1292,7 @@ int strandCombinedBed( string laneName, string ofile, string chromName, map<int,
 		string localSeq;
 		if(opts.reference != ""){
 			nn = dna[pos+2];
+			if(st == '-'){nn = rctable(dna[pos-2]);}
 			stringstream localSeqss;
 
 			//localSeqss << dna[pos-2] << dna[pos-1] << 'C' << next << nn;
