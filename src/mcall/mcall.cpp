@@ -988,7 +988,8 @@ int detectChromsReadLenProtocol(string file, string format, int & readLen, strin
 			for(size_t i=0;i<2;i++){
 				seqs[i]=bam_nt16_rev_table[bam1_seqi(s,i)];
 			}
-			if( ((seqs[0] == 'C') || (seqs[0] == 'T')) && seqs[1] == 'G' ){
+			if((seqs[0] == 'C' || seqs[0] == 'c' || seqs[0] == 'T' || seqs[0] == 't') 
+					&& (seqs[1] == 'G' || seqs[1] == 'g')){
 				countCGorTG ++;
 			}
 		}
