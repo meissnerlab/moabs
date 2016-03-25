@@ -242,22 +242,22 @@ int parse_options(int ac, char * av[]){
 	//////////////////////////////////
 	cout<<"Options are saved in file run.config and printed here:"<<endl;
 	ofstream configFile;
-	//int cur_pid = pid_t ;
-	stringstream configFileName;
-	configFileName << "run.config." << getpid();
-	configFile.open(configFileName.str().c_str(), ios_base::app);
+	//int cur_pid = pid_t;
+	//stringstream configFileName;
+	//configFileName << "run.config." << getpid();
+	//configFile.open(configFileName.str().c_str(), ios_base::app);
 
 	for(std::map<string,po::variable_value>::iterator iter = options.begin(); iter != options.end(); ++iter)
 	{
 		string k =  (*iter).first;
 
 		cout		<<k<<"=";
-		configFile 	<<k<<"=";
+		//configFile 	<<k<<"=";
 
 
 		if( k == "threads"){
 			opts.threads 	= 	options[k].as<int>();
-			configFile 		<<	options[k].as<int>();
+			//configFile 		<<	options[k].as<int>();
 			cout 			<<	options[k].as<int>();
 		}
 		else if( k == "mappedFiles"){
@@ -265,7 +265,7 @@ int parse_options(int ac, char * av[]){
 			for(unsigned int i = 0 ; i < opts.mappedFiles.size(); i++)
 			{
 				cout 		<< opts.mappedFiles[i]<<" ";//copy(myvector.begin(), myvector.end(), ostream_iterator<int>(cout, "\n"));
-				configFile 	<< opts.mappedFiles[i]<<" ";
+				//configFile 	<< opts.mappedFiles[i]<<" ";
 
 				if ( !boost::filesystem::exists( opts.mappedFiles[i] ) )
 				{
@@ -277,17 +277,17 @@ int parse_options(int ac, char * av[]){
 		}
 		else if( k == "webOutputDir"){
 			opts.webOutputDir 	= 	options[k].as<string>();
-			configFile 			<<	options[k].as<string>();
+			//configFile 			<<	options[k].as<string>();
 			cout 				<<	options[k].as<string>();
 		}
 		else if( k == "outputDir"){
 			opts.outputDir 	= 	options[k].as<string>();
-			configFile 		<<	options[k].as<string>();
+			//configFile 		<<	options[k].as<string>();
 			cout 			<<	options[k].as<string>();
 		}
 		else if( k== "sampleName"){
 			opts.sampleName 	= 	options[k].as<string>();
-			configFile 			<<	options[k].as<string>();
+			//configFile 			<<	options[k].as<string>();
 			cout 				<<	options[k].as<string>();
 //			if(opts.mappedFiles.size() != 1){
 //				cerr 			<< "sampleName ignormed because multiple mappedFiles are provided!" <<endl;
@@ -296,22 +296,22 @@ int parse_options(int ac, char * av[]){
 		}
 		else if( k == "genome"){
 			opts.genome 	= 	options[k].as<string>();
-			configFile 		<<	options[k].as<string>();
+			//configFile 		<<	options[k].as<string>();
 			cout 			<<	options[k].as<string>();
 		}
 		else if( k == "reference"){
 			opts.reference 	= 	options[k].as<string>();
-			configFile 		<<	options[k].as<string>();
+			//configFile 		<<	options[k].as<string>();
 			cout 			<<	options[k].as<string>();
 		}
 		else if( k == "cytosineMinScore"){
 			opts.cytosineMinScore 	= 	options[k].as<int>();
-			configFile 				<<	options[k].as<int>();
+			//configFile 				<<	options[k].as<int>();
 			cout 					<<	options[k].as<int>();
 		}
 		else if( k == "nextBaseMinScore"){
 			opts.nextBaseMinScore 	= 	options[k].as<int>();
-			configFile 				<<	options[k].as<int>();
+			//configFile 				<<	options[k].as<int>();
 			cout 					<<	options[k].as<int>();
 		}
 //		else if( k == "reportSkippedBase"){
@@ -321,77 +321,77 @@ int parse_options(int ac, char * av[]){
 //		}
 		else if( k == "qualityScoreBase"){
 			opts.qualityScoreBase 	= 	options[k].as<int>();
-			configFile 				<<	options[k].as<int>();
+			//configFile 				<<	options[k].as<int>();
 			cout 					<<	options[k].as<int>();
 		}
 		else if( k == "trimWGBSEndRepairPE2Seq"){
 			opts.trimWGBSEndRepairPE2Seq 	= 	options[k].as<int>();
-			configFile 				<<	options[k].as<int>();
+			//configFile 				<<	options[k].as<int>();
 			cout 					<<	options[k].as<int>();
 		}
 		else if( k == "trimWGBSEndRepairPE1Seq"){
 			opts.trimWGBSEndRepairPE1Seq 	= 	options[k].as<int>();
-			configFile 				<<	options[k].as<int>();
+			//configFile 				<<	options[k].as<int>();
 			cout 					<<	options[k].as<int>();
 		}
 		else if( k == "processPEOverlapSeq"){
 			opts.processPEOverlapSeq 	= 	options[k].as<int>();
-			configFile 				<<	options[k].as<int>();
+			//configFile 				<<	options[k].as<int>();
 			cout 					<<	options[k].as<int>();
 		}
 		else if( k == "trimRRBSEndRepairSeq"){
 			opts.trimRRBSEndRepairSeq 	= 	options[k].as<int>();
-			configFile 				<<	options[k].as<int>();
+			//configFile 				<<	options[k].as<int>();
 			cout 					<<	options[k].as<int>();
 		}
 		else if( k == "skipRandomChrom"){
 			opts.skipRandomChrom 	= 	options[k].as<int>();
-			configFile 				<<	options[k].as<int>();
+			//configFile 				<<	options[k].as<int>();
 			cout 					<<	options[k].as<int>();
 		}
 		else if( k == "requiredFlag"){
 			opts.requiredFlag 		= 	options[k].as<int>();
-			configFile 				<<	options[k].as<int>();
+			//configFile 				<<	options[k].as<int>();
 			cout 					<<	options[k].as<int>();
 		}
 		else if( k == "excludedFlag"){
 			opts.excludedFlag 		= 	options[k].as<int>();
-			configFile 				<<	options[k].as<int>();
+			//configFile 				<<	options[k].as<int>();
 			cout 					<<	options[k].as<int>();
 		}
 		else if( k == "minFragSize"){
 			opts.minFragSize 		= 	options[k].as<int>();
-			configFile 				<<	options[k].as<int>();
+			//configFile 				<<	options[k].as<int>();
 			cout 					<<	options[k].as<int>();
 		}
 		else if( k == "minMMFragSize"){
 			opts.minMMFragSize 	= 	options[k].as<int>();
-			configFile 				<<	options[k].as<int>();
+			//configFile 				<<	options[k].as<int>();
 			cout 					<<	options[k].as<int>();
 		}
 		else if( k == "reportCpX"){
 			opts.reportCpX 	= 	options[k].as<char>();
-			configFile 				<<	options[k].as<char>();
+			//configFile 				<<	options[k].as<char>();
 			cout 					<<	options[k].as<char>();
 		}
 		else if( k == "reportCHX"){
 			opts.reportCHX 	= 	options[k].as<char>();
-			configFile 				<<	options[k].as<char>();
+			//configFile 				<<	options[k].as<char>();
 			cout 					<<	options[k].as<char>();
 		}
 		else if( k == "fullMode"){
 			opts.fullMode 			= 	options[k].as<int>();
-			configFile 				<<	options[k].as<int>();
+			//configFile 				<<	options[k].as<int>();
 			cout 					<<	options[k].as<int>();
 		}
 		else if( k == "statsOnly"){
 			opts.statsOnly 			= 	options[k].as<int>();
-			configFile 				<<	options[k].as<int>();
+			//configFile 				<<	options[k].as<int>();
 			cout 					<<	options[k].as<int>();
 		}
 		else if( k == "keepTemp"){
 			opts.keepTemp 			= 	options[k].as<int>();
-			configFile 				<<	options[k].as<int>();
+			//configFile 				<<	options[k].as<int>();
 			cout 					<<	options[k].as<int>();
 		}
 		else{
@@ -399,10 +399,10 @@ int parse_options(int ac, char * av[]){
 		}
 
 		cout			<<endl;
-		configFile 		<<endl;
+		//configFile 		<<endl;
 	}
-	configFile.close();
-	configFile.clear();
+	//configFile.close();
+	//configFile.clear();
 
 	if( options["fullMode"].as<int>() == 0 )
 	{
@@ -967,7 +967,7 @@ int detectChromsReadLenProtocol(string file, string format, int & readLen, strin
 			chromsByLane[file][x] = BAM_fp->header->target_name[x];
 		}
 
-		while(samread(BAM_fp,b) > 0 && nline < 999)
+		while(samread(BAM_fp,b) > 0 && nline < 9999)
 		{
 			if(b->core.tid < 0)continue;
 			if( b->core.l_qseq > maxReadLen ){
@@ -985,11 +985,12 @@ int detectChromsReadLenProtocol(string file, string format, int & readLen, strin
 			size_t l_seq=b->core.l_qseq;
 			seqs.assign(l_seq,0);
 			char * s = (char*) bam1_seq(b);
-			for(size_t i=0;i<2;i++){
+			for(size_t i=0;i<10;i++){
 				seqs[i]=bam_nt16_rev_table[bam1_seqi(s,i)];
 			}
-			if((seqs[0] == 'C' || seqs[0] == 'c' || seqs[0] == 'T' || seqs[0] == 't') 
-					&& (seqs[1] == 'G' || seqs[1] == 'g')){
+			cout << seqs << endl;
+			if((seqs[2] == 'C' || seqs[2] == 'c' || seqs[2] == 'T' || seqs[2] == 't') 
+					&& (seqs[3] == 'G' || seqs[3] == 'g')){
 				countCGorTG ++;
 			}
 		}
@@ -1023,7 +1024,7 @@ int detectChromsReadLenProtocol(string file, string format, int & readLen, strin
 		nline = 0;
 		line = "";
 		ifstream inputf(file.c_str(), ios::in);
-		while (inputf.good() && nline < 999) {
+		while (inputf.good() && nline < 9999) {
 			getline(inputf, line);
 			if( line == "" || find(line.begin(), line.begin()+1, '@') == line.begin() ){continue;}
 
@@ -1042,7 +1043,8 @@ int detectChromsReadLenProtocol(string file, string format, int & readLen, strin
 
 			nline ++;
 
-			if( ((seqs[0] == 'C') || (seqs[0] == 'T')) && seqs[1] == 'G' ){
+			if((seqs[0] == 'C' || seqs[0] == 'c' || seqs[0] == 'T' || seqs[0] == 't') 
+					&& (seqs[1] == 'G' || seqs[1] == 'g')){
 				countCGorTG ++;
 			}
 		}
@@ -1053,6 +1055,8 @@ int detectChromsReadLenProtocol(string file, string format, int & readLen, strin
 	if( double(countCGorTG)/nline > 5.0/8.0){
 		protocol = "RRBS";
 	}
+	cout << countCGorTG << endl;
+	cout << nline << endl;
 	readLen = maxReadLen;
 
 	cout << "Protocol and read length are detected as " << protocol <<" and " << readLen << " bases for file " << file <<endl;
@@ -2523,8 +2527,8 @@ int main( int ac, char * av[])
 			if(opts.mappedFiles[0] == opts.sampleName){
 				//
 			} else {
-				string sysCmd = "ln -s " + opts.mappedFiles[0] + ".G.bed " + opts.sampleName + ".G.bed";
-				system(sysCmd.c_str());
+				//string sysCmd = "ln -s " + opts.mappedFiles[0] + ".G.bed " + opts.sampleName + ".G.bed";
+				//system(sysCmd.c_str());
 			}
 		}
 
