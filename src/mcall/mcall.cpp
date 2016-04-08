@@ -988,7 +988,6 @@ int detectChromsReadLenProtocol(string file, string format, int & readLen, strin
 			for(size_t i=0;i<10;i++){
 				seqs[i]=bam_nt16_rev_table[bam1_seqi(s,i)];
 			}
-			cout << seqs << endl;
 			if((seqs[2] == 'C' || seqs[2] == 'c' || seqs[2] == 'T' || seqs[2] == 't') 
 					&& (seqs[3] == 'G' || seqs[3] == 'g')){
 				countCGorTG ++;
@@ -1055,8 +1054,6 @@ int detectChromsReadLenProtocol(string file, string format, int & readLen, strin
 	if( double(countCGorTG)/nline > 5.0/8.0){
 		protocol = "RRBS";
 	}
-	cout << countCGorTG << endl;
-	cout << nline << endl;
 	readLen = maxReadLen;
 
 	cout << "Protocol and read length are detected as " << protocol <<" and " << readLen << " bases for file " << file <<endl;
